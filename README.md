@@ -525,7 +525,6 @@ who-global-health-sql-project/
   charts/                         # 20 PNG visualizations
   generate_charts.py              # Chart generation script (matplotlib)
   VISUAL_REPORT.html              # HTML report with all charts
-  REPORT.md                       # Detailed project report
   COMPLIANCE_REPORT.md            # Requirements compliance verification
   PROJECT_BRIEF.md                # Original project requirements
   README.md                       # This file
