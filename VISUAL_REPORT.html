@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WHO Global Health Estimates — Visual Report</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 1100px; margin: 0 auto;
+         padding: 20px; background: #fafafa; color: #333; }
+  h1 { color: #1a5276; border-bottom: 3px solid #1a5276; padding-bottom: 10px; }
+  h2 { color: #2c3e50; margin-top: 40px; }
+  .chart-block { background: white; border-radius: 8px; padding: 20px; margin: 20px 0;
+                 box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .chart-block img { width: 100%; border-radius: 4px; }
+  .chart-block p { color: #555; font-size: 15px; line-height: 1.6; margin-top: 10px; }
+  .chart-block .tag { display: inline-block; background: #eaf2f8; color: #1a5276;
+                      padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-bottom: 8px; }
+  .summary { background: #eaf2f8; padding: 15px 20px; border-radius: 8px; margin: 20px 0; }
+  .summary ul { margin: 5px 0; }
+</style>
+</head>
+<body>
+<h1>WHO Global Health Estimates — Visual Report</h1>
+<div class="summary">
+<p><strong>Source:</strong> WHO Global Health Observatory (GHO) OData API</p>
+<p><strong>Coverage:</strong> 228 countries · 6 WHO regions · 2000–2024</p>
+<p><strong>Data:</strong> 103,669 fact rows across 3 fact tables (health estimates, NCD deaths, communicable deaths)</p>
+<ul>
+  <li><strong>20 analytical queries</strong> covering life expectancy, NCD mortality, communicable disease deaths, and cross-dataset epidemiological analysis</li>
+</ul>
+</div>
+<h2>Health Estimates (Q1–Q10)</h2>
+<div class="chart-block">
+<span class="tag">Q01</span>
+<h3>Global Life Expectancy Trend</h3>
+<img src="charts/q01.png" alt="Global Life Expectancy Trend">
+<p>Steady increase from 67.0 (2000) to 72.6 (2019), then a COVID-19-driven decline to 71.3 (2021).</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q02</span>
+<h3>Year-over-Year Life Expectancy Change</h3>
+<img src="charts/q02.png" alt="Year-over-Year Life Expectancy Change">
+<p>2020 and 2021 are the only years with negative growth — a clear COVID-19 signature.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q03</span>
+<h3>Top 10 Countries by Life Expectancy</h3>
+<img src="charts/q03.png" alt="Top 10 Countries by Life Expectancy">
+<p>Japan leads at 84.5 years, followed by Singapore and South Korea.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q04</span>
+<h3>Top 3 per WHO Region</h3>
+<img src="charts/q04.png" alt="Top 3 per WHO Region">
+<p>Switzerland leads Europe, Japan leads Western Pacific, Algeria leads Africa.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q05</span>
+<h3>Gender Gap in Life Expectancy</h3>
+<img src="charts/q05.png" alt="Gender Gap in Life Expectancy">
+<p>Women outlive men in every region. Americas have the widest gap (5.7 years).</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q06</span>
+<h3>Life Expectancy vs Adult Mortality</h3>
+<img src="charts/q06.png" alt="Life Expectancy vs Adult Mortality">
+<p>Strong inverse correlation — countries with high life expectancy have low adult mortality.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q07</span>
+<h3>Regional Improvement (2000 vs 2021)</h3>
+<img src="charts/q07.png" alt="Regional Improvement (2000 vs 2021)">
+<p>Africa improved the most (+9.3 years). Americas barely changed (+0.2 years).</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q08</span>
+<h3>Mortality Concentration</h3>
+<img src="charts/q08.png" alt="Mortality Concentration">
+<p>The 20 countries with highest adult mortality account for ~22% of the global total.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q09</span>
+<h3>HALE Distribution by Region</h3>
+<img src="charts/q09.png" alt="HALE Distribution by Region">
+<p>Europe has the highest median HALE; Africa shows the widest spread and lowest values.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q10</span>
+<h3>Countries with Declining Life Expectancy</h3>
+<img src="charts/q10.png" alt="Countries with Declining Life Expectancy">
+<p>23 countries saw declines, led by Paraguay (-4.4), Philippines (-3.6), Peru (-3.5) — mostly in the Americas.</p>
+</div>
+<h2>NCD Deaths (Q11–Q14)</h2>
+<div class="chart-block">
+<span class="tag">Q11</span>
+<h3>NCD Death Trends by Cause</h3>
+<img src="charts/q11.png" alt="NCD Death Trends by Cause">
+<p>Cardiovascular diseases dominate at ~17.9M deaths/year. All NCD causes are rising.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q12</span>
+<h3>Most Lethal NCD per Country</h3>
+<img src="charts/q12.png" alt="Most Lethal NCD per Country">
+<p>Cardiovascular diseases are the #1 NCD killer in almost every country. Japan and France are exceptions (cancer leads).</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q13</span>
+<h3>NCD Death Share by Region</h3>
+<img src="charts/q13.png" alt="NCD Death Share by Region">
+<p>Eastern Mediterranean has the highest cardiovascular share (64%). South-East Asia has unusually high respiratory disease share (21%).</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q14</span>
+<h3>Life Expectancy vs Cardiovascular Deaths</h3>
+<img src="charts/q14.png" alt="Life Expectancy vs Cardiovascular Deaths">
+<p>Absolute death counts are driven by population size — China and India dominate regardless of life expectancy.</p>
+</div>
+<h2>Communicable Deaths (Q15–Q16)</h2>
+<div class="chart-block">
+<span class="tag">Q15</span>
+<h3>Communicable Disease Death Trends</h3>
+<img src="charts/q15.png" alt="Communicable Disease Death Trends">
+<p>TB remains the deadliest communicable disease. HIV/AIDS deaths have declined significantly since ~2005. Hepatitis data only available for 2022.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q16</span>
+<h3>Top 5 Countries per Communicable Disease</h3>
+<img src="charts/q16.png" alt="Top 5 Countries per Communicable Disease">
+<p>India leads in TB (300K), Nigeria in Malaria (185K), South Africa in HIV/AIDS (53K).</p>
+</div>
+<h2>Cross-Dataset Analysis (Q17–Q20)</h2>
+<div class="chart-block">
+<span class="tag">Q17</span>
+<h3>NCD vs Communicable Deaths by Region</h3>
+<img src="charts/q17.png" alt="NCD vs Communicable Deaths by Region">
+<p>Africa is the only region where communicable diseases still represent 42.5% of deaths. Europe: 99.6% NCD.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q18</span>
+<h3>Epidemiological Transition</h3>
+<img src="charts/q18.png" alt="Epidemiological Transition">
+<p>Africa's ratio flipped from 0.6 (communicable dominated) to 1.4 (NCD dominated). All regions shifted further toward NCD.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q19</span>
+<h3>Total Mortality Burden (3-Fact JOIN)</h3>
+<img src="charts/q19.png" alt="Total Mortality Burden (3-Fact JOIN)">
+<p>China and India dominate absolute counts. Life expectancy is annotated to show that large burden doesn't always mean low LE.</p>
+</div>
+<div class="chart-block">
+<span class="tag">Q20</span>
+<h3>Africa's Double Burden</h3>
+<img src="charts/q20.png" alt="Africa's Double Burden">
+<p>Nigeria faces 654K combined deaths (59% communicable). DR Congo, Tanzania, Niger have ~50/50 splits.</p>
+</div>
+
+<div class="summary" style="margin-top: 40px;">
+<h3>Key Takeaways</h3>
+<ul>
+  <li>Global life expectancy rose from 67.0 to 72.6 years (2000–2019), then fell to 71.3 (2021) due to COVID-19.</li>
+  <li>Cardiovascular diseases are the world's #1 killer at ~17.9M deaths/year (2019).</li>
+  <li>Africa is the only region where communicable diseases still represent &gt;40% of mortality.</li>
+  <li>Africa's NCD-to-communicable ratio flipped from 0.6 (2000) to 1.4 (2019) — the epidemiological transition is underway everywhere.</li>
+  <li>Nigeria, DR Congo, and Tanzania face the worst "double burden" of simultaneous NCD and communicable disease mortality.</li>
+</ul>
+</div>
+</body></html>
