@@ -454,39 +454,67 @@ The project contains 20 analytical queries organized in 4 thematic blocks:
 ## 13. Instrucciones de reproduccion
 
 ### Prerequisitos
+- Docker y Docker Compose
 - Python 3.x (para descargar datos)
-- MySQL 8.0+ (servidor activo)
-- DBeaver u otra herramienta SQL (para importar CSV)
+- DBeaver u otra herramienta SQL (para importar CSV y ejecutar queries)
 
 ### Pasos
 
-1. **Descargar datos** (requiere conexion a internet):
+1. **Levantar MySQL con Docker Compose**:
+   ```bash
+   docker compose up -d
+   ```
+   Esto arranca un contenedor MySQL 8.0 accesible en `localhost:3307` (usuario: `root`, password: `root`).
+
+2. **Conectar desde DBeaver** (u otra herramienta):
+   - Host: `127.0.0.1`
+   - Port: `3307`
+   - User: `root`
+   - Password: `root`
+
+   O desde la terminal:
+   ```bash
+   docker exec -it mysql-evolve mysql -uroot -proot
+   ```
+
+3. **Descargar datos** (requiere conexion a internet):
    ```bash
    python3 data/download_who_data.py
    ```
 
-2. **Crear schema** — ejecutar en MySQL:
+4. **Crear schema** — ejecutar en MySQL:
    ```
    sql/01_schema.sql
    ```
 
-3. **Importar CSV a staging** con DBeaver Import Wizard o `LOAD DATA INFILE`:
+5. **Importar CSV a staging** con DBeaver Import Wizard o `LOAD DATA INFILE`:
    - `data/health_estimates_raw.csv` → `stg_health_estimates_raw`
    - `data/ncd_deaths_raw.csv` → `stg_ncd_deaths_raw`
    - `data/communicable_deaths_raw.csv` → `stg_communicable_deaths_raw`
    - `data/countries.csv` → `stg_countries_raw`
 
-4. **Validar staging**: `sql/02_load_staging.sql`
+6. **Validar staging**: `sql/02_load_staging.sql`
 
-5. **Transformar a core**: `sql/03_transform_core.sql`
+7. **Transformar a core**: `sql/03_transform_core.sql`
 
-6. **Crear vistas semanticas**: `sql/04_semantic_views.sql`
+8. **Crear vistas semanticas**: `sql/04_semantic_views.sql`
 
-7. **Validar calidad**: `sql/06_quality_checks.sql`
+9. **Validar calidad**: `sql/06_quality_checks.sql`
 
-8. **Ejecutar consultas analiticas**: `sql/05_analysis_queries.sql`
+10. **Ejecutar consultas analiticas**: `sql/05_analysis_queries.sql`
 
-9. **SQL avanzado**: `sql/07_advanced_sql.sql`
+11. **SQL avanzado**: `sql/07_advanced_sql.sql`
+
+### Parar el contenedor
+
+```bash
+docker compose down
+```
+
+Para eliminar tambien los datos persistidos:
+```bash
+docker compose down -v
+```
 
 ### Expected table counts
 
@@ -524,7 +552,9 @@ who-global-health-sql-project/
     07_advanced_sql.sql           # 2 functions + 1 procedure + 1 trigger
   charts/                         # 20 PNG visualizations
   generate_charts.py              # Chart generation script (matplotlib)
+  docker-compose.yml              # MySQL 8.0 container (port 3307)
   VISUAL_REPORT.html              # HTML report with all charts
+  SLIDE_DECK.html                 # Presentation slides with embedded charts
   COMPLIANCE_REPORT.md            # Requirements compliance verification
   PROJECT_BRIEF.md                # Original project requirements
   README.md                       # This file
